@@ -39,8 +39,6 @@ Licensed under the Apache License, Version 2.0 (the "License").
 
 """### Import TensorFlow and enable eager execution"""
 
-tf.compat.v1.enable_eager_execution()
-
 
 print(tf.__version__)
 
@@ -256,7 +254,7 @@ def train(dataset, epochs):
         for images in dataset:
             train_step(images)
 
-        # display.clear_output(wait=True)
+        display.clear_output(wait=True)
         generate_and_save_images(generator,
                                  epoch + 1,
                                  random_vector_for_generation)
@@ -268,7 +266,7 @@ def train(dataset, epochs):
         print('Time taken for epoch {} is {} sec'.format(epoch + 1,
                                                          time.time()-start))
     # generating after the final epoch
-    # display.clear_output(wait=True)
+    display.clear_output(wait=True)
     generate_and_save_images(generator,
                              epochs,
                              random_vector_for_generation)
@@ -287,7 +285,6 @@ def generate_and_save_images(model, epoch, test_input):
 
     for i in range(predictions.shape[0]):
         plt.subplot(4, 4, i+1)
-#       plt.imshow(predictions[i, :, :, 0] * 127.5 + 127.5, cmap='gray')
         predi = convert_array_to_image(predictions[i])
         plt.imshow(predi)
         plt.axis('off')
@@ -319,12 +316,13 @@ At the beginning of the training, the generated images look like random noise. A
 
 **Restore the latest checkpoint**
 """
+checkpoint.restore(tf.train.latest_checkpoint(checkpoint_dir))
 
 print("Num epochs", EPOCHS)
 train(train_dataset, EPOCHS)
 
 # restoring the latest checkpoint in checkpoint_dir
-checkpoint.restore(tf.train.latest_checkpoint(checkpoint_dir))
+
 
 """## Generated images
 
