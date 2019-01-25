@@ -291,7 +291,7 @@ def generate_and_save_images(model, epoch, test_input):
         # plt.imshow(predi)
         plt.axis('off')
 
-    plt.savefig('image_at_epoch_{:04d}.png'.format(epoch))
+    plt.savefig("images/" + 'image_at_epoch_{:04d}.png'.format(epoch))
     # plt.show()
 
 
