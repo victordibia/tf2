@@ -282,7 +282,7 @@ def generate_and_save_images(model, epoch, test_input):
         plt.subplot(4, 4, i+1)
 #       plt.imshow(predictions[i, :, :, 0] * 127.5 + 127.5, cmap='gray')
         predi = convert_array_to_image(predictions[i])
-        plt.imshow(predi)
+        # plt.imshow(predi)
         plt.axis('off')
 
     plt.savefig('image_at_epoch_{:04d}.png'.format(epoch))
