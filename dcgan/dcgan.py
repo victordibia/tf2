@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
-from IPython import display
-import time
-import PIL
-import os
+
 import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib
+import os
+import PIL
+import time
+from IPython import display
 import imageio
 import glob
 import tensorflow as tf
+import matplotlib
+# import matplotlib.pyplot as plt
 
 matplotlib.use('Agg')
 
@@ -276,6 +277,7 @@ def train(dataset, epochs):
 
 
 def generate_and_save_images(model, epoch, test_input):
+    import matplotlib.pyplot as plt
     # make sure the training parameter is set to False because we
     # don't want to train the batchnorm layer when doing inference.
     predictions = model(test_input, training=False)
