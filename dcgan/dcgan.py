@@ -250,7 +250,7 @@ def train(dataset, epochs):
         for images in dataset:
             train_step(images)
 
-        display.clear_output(wait=True)
+        # display.clear_output(wait=True)
         generate_and_save_images(generator,
                                  epoch + 1,
                                  random_vector_for_generation)
@@ -262,7 +262,7 @@ def train(dataset, epochs):
         print('Time taken for epoch {} is {} sec'.format(epoch + 1,
                                                          time.time()-start))
     # generating after the final epoch
-    display.clear_output(wait=True)
+    # display.clear_output(wait=True)
     generate_and_save_images(generator,
                              epochs,
                              random_vector_for_generation)
@@ -286,7 +286,7 @@ def generate_and_save_images(model, epoch, test_input):
         plt.axis('off')
 
     plt.savefig('image_at_epoch_{:04d}.png'.format(epoch))
-    plt.show()
+    # plt.show()
 
 
 def convert_array_to_image(array):
@@ -330,7 +330,7 @@ def display_image(epoch_no):
     return PIL.Image.open('image_at_epoch_{:04d}.png'.format(epoch_no))
 
 
-display_image(EPOCHS)
+# display_image(EPOCHS)
 
 """**Generate a GIF of all the saved images**
 
@@ -357,7 +357,7 @@ os.system('cp dcgan.gif dcgan.gif.png')
 
 """Display the animated gif with all the mages generated during the training of GANs."""
 
-display.Image(filename="dcgan.gif.png")
+# display.Image(filename="dcgan.gif.png")
 
 """**Download the animated gif**
 
