@@ -9,7 +9,7 @@ import imageio
 import glob
 import tensorflow as tf
 
-matplotlib.use('Agg')
+plt.use('Agg')
 
 """DCGAN_CIFAR10.ipynb
 
