@@ -5,11 +5,12 @@ import PIL
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib
 import imageio
 import glob
 import tensorflow as tf
 
-plt.use('Agg')
+matplotlib.use('Agg')
 
 """DCGAN_CIFAR10.ipynb
 
