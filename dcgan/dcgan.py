@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import matplotlib.pyplot as plt
 import numpy as np
 import os
 import PIL
@@ -275,10 +276,9 @@ def train(dataset, epochs):
 
 """**Generate and save images**"""
 
-import matplotlib.pyplot as plt
 
 def generate_and_save_images(model, epoch, test_input):
-    # 
+    #
     # make sure the training parameter is set to False because we
     # don't want to train the batchnorm layer when doing inference.
     predictions = model(test_input, training=False)
@@ -289,7 +289,7 @@ def generate_and_save_images(model, epoch, test_input):
         plt.subplot(4, 4, i+1)
 #       plt.imshow(predictions[i, :, :, 0] * 127.5 + 127.5, cmap='gray')
         predi = convert_array_to_image(predictions[i])
-        # plt.imshow(predi)
+        plt.imshow(predi)
         plt.axis('off')
 
     plt.savefig("images/" + 'image_at_epoch_{:04d}.png'.format(epoch))
