@@ -313,12 +313,14 @@ We will call the train() method defined above to train the generator and discrim
 
 At the beginning of the training, the generated images look like random noise. As training progresses, you can see the generated digits look increasingly real. After 50 epochs, they look very much like the MNIST digits.
 
-%%time
-print("Num epochs", EPOCHS)
-train(train_dataset, EPOCHS)
+
+
 
 **Restore the latest checkpoint**
 """
+
+print("Num epochs", EPOCHS)
+train(train_dataset, EPOCHS)
 
 # restoring the latest checkpoint in checkpoint_dir
 checkpoint.restore(tf.train.latest_checkpoint(checkpoint_dir))
